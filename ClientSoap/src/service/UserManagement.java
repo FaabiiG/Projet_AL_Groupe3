@@ -39,24 +39,6 @@ public interface UserManagement {
 
     /**
      * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns service.User
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getUser", targetNamespace = "http://service/", className = "service.GetUser")
-    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://service/", className = "service.GetUserResponse")
-    @Action(input = "http://service/UserManagement/getUserRequest", output = "http://service/UserManagement/getUserResponse")
-    public User getUser(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
      * @param arg3
      * @param arg2
      * @param arg1
@@ -81,18 +63,21 @@ public interface UserManagement {
 
     /**
      * 
+     * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns service.User
      */
-    @WebMethod(operationName = "Delete")
+    @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Delete", targetNamespace = "http://service/", className = "service.Delete")
-    @ResponseWrapper(localName = "DeleteResponse", targetNamespace = "http://service/", className = "service.DeleteResponse")
-    @Action(input = "http://service/UserManagement/DeleteRequest", output = "http://service/UserManagement/DeleteResponse")
-    public String delete(
+    @RequestWrapper(localName = "getUser", targetNamespace = "http://service/", className = "service.GetUser")
+    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://service/", className = "service.GetUserResponse")
+    @Action(input = "http://service/UserManagement/getUserRequest", output = "http://service/UserManagement/getUserResponse")
+    public User getUser(
         @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
     /**
      * 
@@ -127,6 +112,21 @@ public interface UserManagement {
     @ResponseWrapper(localName = "getUserByIdResponse", targetNamespace = "http://service/", className = "service.GetUserByIdResponse")
     @Action(input = "http://service/UserManagement/getUserByIdRequest", output = "http://service/UserManagement/getUserByIdResponse")
     public User getUserById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "Delete")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Delete", targetNamespace = "http://service/", className = "service.Delete")
+    @ResponseWrapper(localName = "DeleteResponse", targetNamespace = "http://service/", className = "service.DeleteResponse")
+    @Action(input = "http://service/UserManagement/DeleteRequest", output = "http://service/UserManagement/DeleteResponse")
+    public String delete(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0);
 

@@ -65,5 +65,8 @@ public class GetUsersResponse {
         }
         return this._return;
     }
+    public void setReturn(List<User> users) {
+        this._return = users;
+    }
 
 }
